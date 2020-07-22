@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -11,10 +5,6 @@ import random
 import numpy as np
 import gym
 from collections import deque
-
-
-# In[ ]:
-
 
 class act_model(nn.Module):
     def __init__(self,inp,hidden,output):
@@ -35,7 +25,6 @@ class act_model(nn.Module):
         self.optimizer = optim.Adam(self.parameters(),lr=.001)
         
     def action(self,state):
-        #choose action with probability
         if(random.random() <= self.epsilon):
             return np.random.choice(out, 1)[0]
         else:
@@ -80,10 +69,6 @@ class act_model(nn.Module):
         out = self.fc3(out)
         
         return out
-
-
-# In[ ]:
-
 
 inp = 4
 hid = 24
